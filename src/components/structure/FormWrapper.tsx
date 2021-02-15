@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const AppWrapper = styled.div`
-  padding: 2rem;
+export const FormWrapper = styled.div`
+  padding: 1rem;
 `;
