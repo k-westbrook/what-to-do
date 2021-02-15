@@ -22,15 +22,7 @@ enum Category {
 const Form: FunctionComponent = () => {
   return (
     <FormWrapper>
-      <FormItem>
-        <TextField variant="outlined" />
-      </FormItem>
-      <FormItem>
-        <Button variant="contained" style={{ height: '100%' }}>
-          Add a Task
-        </Button>
-      </FormItem>
-      <FormItem>
+      <FormItem flex>
         <Select value={Category.SOCIAL} style={{ width: '200px' }}>
           <MenuItem value={Category.SOCIAL}>Social</MenuItem>
           <MenuItem value={Category.WORK}>Work</MenuItem>
@@ -40,6 +32,14 @@ const Form: FunctionComponent = () => {
           <MenuItem value={Category.PET}>Pet</MenuItem>
           <MenuItem value={Category.OTHER}>Other</MenuItem>
         </Select>
+      </FormItem>
+      <FormItem>
+        <TextField variant="outlined" />
+      </FormItem>
+      <FormItem>
+        <Button variant="contained" style={{ height: '100%' }}>
+          Add a Task
+        </Button>
       </FormItem>
     </FormWrapper>
   );
