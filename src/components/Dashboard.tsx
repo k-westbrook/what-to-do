@@ -1,6 +1,10 @@
 import { Button, TextField, Typography } from '@material-ui/core';
 import React, { useState, FunctionComponent } from 'react';
+import Calendar from './Calendar';
+import ComingSoon from './ComingSoon';
+import Form from './Form';
 import { DivWrapper } from './structure/DivWrapper';
+import { FormItem } from './structure/FormItem';
 import { FormWrapper } from './structure/FormWrapper';
 import { TextWrapper } from './structure/TextWrapper';
 
@@ -14,12 +18,13 @@ const Dashboard: FunctionComponent = () => {
         </TextWrapper>
       </DivWrapper>
       <DivWrapper position="flex-start">
-        <FormWrapper>
-          <Button>
-            <Typography variant="h4">Add a Task</Typography>
-          </Button>
-          <TextField />
-        </FormWrapper>
+        <Form />
+      </DivWrapper>
+      <DivWrapper>
+        <ComingSoon />
+      </DivWrapper>
+      <DivWrapper>
+        <Calendar />
       </DivWrapper>
     </div>
   );
