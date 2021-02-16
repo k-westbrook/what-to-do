@@ -41,6 +41,7 @@ const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
       ? `0${currentDate.getMonth() + 1}`
       : currentDate.getMonth() + 1;
   const concatDateString = `${currentDate.getFullYear()}-${currentMonth}-${currentDate.getDate()}`;
+  const currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
   const [todo, setTodo] = useState(defaultTodo);
   const handleChange = (name: any) => (event: any) => {
     setTodo({ ...todo, [name]: event.target.value });
@@ -87,7 +88,7 @@ const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
           <TextField
             name="time"
             type="time"
-            defaultValue="07:30"
+            defaultValue={currentTime}
             onChange={handleChange('time')}
           />
         </FormItem>
