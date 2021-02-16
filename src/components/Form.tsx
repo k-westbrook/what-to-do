@@ -9,6 +9,14 @@ import React, { FunctionComponent, useState } from 'react';
 import { FormItem } from './structure/FormItem';
 import { FormWrapper } from './structure/FormWrapper';
 
+const currentDate = new Date();
+const currentMonth =
+  currentDate.getMonth() < 11
+    ? `0${currentDate.getMonth() + 1}`
+    : currentDate.getMonth() + 1;
+const concatDateString = `${currentDate.getFullYear()}-${currentMonth}-${currentDate.getDate()}`;
+const currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+
 export interface Todo {
   category: Category;
   name: string;
@@ -17,31 +25,24 @@ export interface Todo {
   complete: boolean;
 }
 export enum Category {
-  SOCIAL,
-  WORK,
-  HOME,
-  ERRAND,
-  TRAVEL,
-  PET,
-  OTHER,
+  SOCIAL = 'Social',
+  WORK = 'Work',
+  HOME = 'Home',
+  ERRAND = 'Errand',
+  TRAVEL = 'Travel',
+  PET = 'Pet',
+  OTHER = 'Other',
 }
 
 const defaultTodo = {
   category: Category.OTHER,
   name: null,
-  date: null,
-  time: null,
+  date: concatDateString,
+  time: currentTime,
   complete: false,
 };
 
 const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
-  const currentDate = new Date();
-  const currentMonth =
-    currentDate.getMonth() < 11
-      ? `0${currentDate.getMonth() + 1}`
-      : currentDate.getMonth() + 1;
-  const concatDateString = `${currentDate.getFullYear()}-${currentMonth}-${currentDate.getDate()}`;
-  const currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
   const [todo, setTodo] = useState(defaultTodo);
   const handleChange = (name: any) => (event: any) => {
     setTodo({ ...todo, [name]: event.target.value });
