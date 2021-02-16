@@ -8,7 +8,6 @@ import {
 import React, { FunctionComponent } from 'react';
 import { FormItem } from './structure/FormItem';
 import { FormWrapper } from './structure/FormWrapper';
-import { TextWrapper } from './structure/TextWrapper';
 
 enum Category {
   SOCIAL,
@@ -35,6 +34,12 @@ const Form: FunctionComponent = () => {
       </FormItem>
       <FormItem>
         <TextField variant="outlined" />
+      </FormItem>
+      <FormItem flex alignItems="flex-end">
+        <TextField type="date" defaultValue="2017-05-24" />
+      </FormItem>
+      <FormItem flex alignItems="flex-end">
+        <TextField type="time" defaultValue="07:30" />
       </FormItem>
       <FormItem>
         <Button variant="contained" style={{ height: '100%' }}>
