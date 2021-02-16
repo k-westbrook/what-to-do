@@ -9,14 +9,14 @@ import React, { FunctionComponent, useState } from 'react';
 import { FormItem } from './structure/FormItem';
 import { FormWrapper } from './structure/FormWrapper';
 
-interface todo {
+export interface Todo {
   category: Category;
   name: string;
   date: any;
   time: any;
   complete: boolean;
 }
-enum Category {
+export enum Category {
   SOCIAL,
   WORK,
   HOME,
@@ -34,17 +34,18 @@ const defaultTodo = {
   complete: false,
 };
 
-const Form: FunctionComponent = () => {
+const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
   const [todo, setTodo] = useState(defaultTodo);
   const handleChange = (name: any) => (event: any) => {
     setTodo({ ...todo, [name]: event.target.value });
   };
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    props.addTodo(todo);
   };
   return (
-    <FormWrapper>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      <FormWrapper>
         <FormItem flex>
           <Select
             name="category"
@@ -89,8 +90,8 @@ const Form: FunctionComponent = () => {
             Add a Task
           </Button>
         </FormItem>
-      </form>
-    </FormWrapper>
+      </FormWrapper>
+    </form>
   );
 };
 

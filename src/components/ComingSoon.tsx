@@ -9,14 +9,16 @@ import {
   Checkbox,
 } from '@material-ui/core';
 import React, { useState, FunctionComponent } from 'react';
-import Form from './Form';
+import Form, { Todo } from './Form';
 import { DivWrapper } from './structure/DivWrapper';
 import { FormItem } from './structure/FormItem';
 import { FormWrapper } from './structure/FormWrapper';
 import { TextWrapper } from './structure/TextWrapper';
 
-const ComingSoon: FunctionComponent = () => {
+const ComingSoon: FunctionComponent<{ todoList: Todo[] }> = (props: any) => {
   const [title, setTitle] = useState("What's to do");
+  const { todoList } = props;
+  console.log(todoList);
   return (
     <div>
       <DivWrapper>
@@ -34,19 +36,23 @@ const ComingSoon: FunctionComponent = () => {
               <TableCell align="left">Name</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell component="th" scope="row">
-                lol
-              </TableCell>
-              <TableCell align="left">lol</TableCell>
-              <TableCell align="left">lol</TableCell>
-              <TableCell align="left">lol</TableCell>
-              <TableCell style={{ borderBottom: 'none' }} align="left">
-                <Checkbox />
-              </TableCell>
-            </TableRow>
-          </TableBody>
+          {todoList.length > 0 && (
+            <TableBody>
+              {todoList.map((todo: any) => (
+                <TableRow>
+                  <TableCell component="th" scope="row">
+                    {todo.date}
+                  </TableCell>
+                  <TableCell align="left">{todo.time}</TableCell>
+                  <TableCell align="left">{todo.category}</TableCell>
+                  <TableCell align="left">{todo.name}</TableCell>
+                  <TableCell style={{ borderBottom: 'none' }} align="left">
+                    <Checkbox />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          )}
         </Table>
       </DivWrapper>
     </div>

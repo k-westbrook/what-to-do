@@ -2,26 +2,32 @@ import { Button, TextField, Typography } from '@material-ui/core';
 import React, { useState, FunctionComponent } from 'react';
 import Calendar from './Calendar';
 import ComingSoon from './ComingSoon';
-import Form from './Form';
+import Form, { Todo } from './Form';
 import { DivWrapper } from './structure/DivWrapper';
 import { FormItem } from './structure/FormItem';
 import { FormWrapper } from './structure/FormWrapper';
 import { TextWrapper } from './structure/TextWrapper';
 
 const Dashboard: FunctionComponent = () => {
-  const [title, setTitle] = useState("What's to do");
+  const [todoList, setList] = useState<Todo[]>([]);
+
+  const addTodo = (todo: Todo) => {
+    const newList = [...todoList, todo];
+    setList(newList);
+  };
+
   return (
     <div>
       <DivWrapper>
         <TextWrapper>
-          <Typography variant="h2">{title}</Typography>
+          <Typography variant="h2">What to Do?</Typography>
         </TextWrapper>
       </DivWrapper>
-      <DivWrapper position="flex-start">
-        <Form />
+      <DivWrapper>
+        <Form addTodo={addTodo} />
       </DivWrapper>
       <DivWrapper>
-        <ComingSoon />
+        <ComingSoon todoList={todoList} />
       </DivWrapper>
       <DivWrapper>
         <Calendar />
