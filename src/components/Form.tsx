@@ -35,6 +35,12 @@ const defaultTodo = {
 };
 
 const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
+  const currentDate = new Date();
+  const currentMonth =
+    currentDate.getMonth() < 11
+      ? `0${currentDate.getMonth() + 1}`
+      : currentDate.getMonth() + 1;
+  const concatDateString = `${currentDate.getFullYear()}-${currentMonth}-${currentDate.getDate()}`;
   const [todo, setTodo] = useState(defaultTodo);
   const handleChange = (name: any) => (event: any) => {
     setTodo({ ...todo, [name]: event.target.value });
@@ -73,7 +79,7 @@ const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
           <TextField
             name="date"
             type="date"
-            defaultValue="2017-05-24"
+            defaultValue={concatDateString}
             onChange={handleChange('date')}
           />
         </FormItem>
