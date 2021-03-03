@@ -18,7 +18,6 @@ import { TextWrapper } from './structure/TextWrapper';
 const ComingSoon: FunctionComponent<{ todoList: Todo[] }> = (props: any) => {
   const [title, setTitle] = useState("What's to do");
   const { todoList } = props;
-  console.log(todoList);
   return (
     <div>
       <DivWrapper>

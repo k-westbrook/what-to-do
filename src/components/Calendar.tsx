@@ -13,18 +13,17 @@ const transformDates = (data: any) => {
   const newTodoSet = data.map((todo: Todo) => {
     const title = todo.name ? todo.name : 'Event';
     const dateArray = todo.date.split('-');
-    console.log(dateArray);
     const start = new Date(
       Number(dateArray[0]),
-      Number(dateArray[2]) + 1,
-      Number(dateArray[1]),
+      Number(dateArray[1]) - 1,
+      Number(dateArray[2]),
       10,
       0
     );
     const end = new Date(
       Number(dateArray[0]),
-      Number(dateArray[2]) + 1,
-      Number(dateArray[1]),
+      Number(dateArray[1]) - 1,
+      Number(dateArray[2]),
       14,
       0
     );
@@ -70,14 +69,7 @@ const CalendarComponent: FunctionComponent<{ todoList: any }> = (
       <DivWrapper>
         <Calendar
           localizer={localizer}
-          events={[
-            {
-              title: 'My event',
-              allDay: false,
-              start: new Date(2021, 2, 6, 10, 0), // 10.00 AM
-              end: new Date(2021, 2, 6, 14, 0), // 2.00 PM
-            },
-          ]}
+          events={all}
           defaultDate={
             new Date(
               todayDate.getFullYear(),

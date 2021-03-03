@@ -15,7 +15,6 @@ const Dashboard: FunctionComponent = () => {
     const newList = [...todoList, todo];
     setList(newList);
   };
-
   return (
     <div>
       <DivWrapper>
