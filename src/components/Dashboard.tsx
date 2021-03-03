@@ -1,6 +1,6 @@
 import { Button, TextField, Typography } from '@material-ui/core';
 import React, { useState, FunctionComponent } from 'react';
-import Calendar from './Calendar';
+import CalendarComponent from './Calendar';
 import ComingSoon from './ComingSoon';
 import Form, { Todo } from './Form';
 import { DivWrapper } from './structure/DivWrapper';
@@ -30,7 +30,7 @@ const Dashboard: FunctionComponent = () => {
         <ComingSoon todoList={todoList} />
       </DivWrapper>
       <DivWrapper>
-        <Calendar />
+        <CalendarComponent todoList={todoList} />
       </DivWrapper>
     </div>
   );
