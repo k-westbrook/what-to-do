@@ -10,6 +10,8 @@ import { TextWrapper } from './structure/TextWrapper';
 
 const Dashboard: FunctionComponent = () => {
   const [todoList, setList] = useState<Todo[]>([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   const addTodo = (todo: Todo) => {
     const newList = [...todoList, todo];
@@ -26,7 +28,13 @@ const Dashboard: FunctionComponent = () => {
         <Form addTodo={addTodo} />
       </DivWrapper>
       <DivWrapper>
-        <ComingSoon todoList={todoList} />
+        <ComingSoon
+          todoList={todoList}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          setCurrentPage={setCurrentPage}
+          setTotalPages={setTotalPages}
+        />
       </DivWrapper>
       <DivWrapper>
         <CalendarComponent todoList={todoList} />
