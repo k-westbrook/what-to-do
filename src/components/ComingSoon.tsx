@@ -24,12 +24,11 @@ import { TextWrapper } from './structure/TextWrapper';
 interface ComingSoonProps {
   todoList: Todo[];
   currentPage: number;
-  totalPages: number;
+  rowsPerPage: number;
   setCurrentPage: any;
-  setTotalPages: any;
+  setRowsPerPage: any;
 }
 
-const rowsPerPage = 5;
 const customColumnStyle = (width: string) => ({
   width,
 });
@@ -39,9 +38,9 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
   const {
     todoList,
     currentPage,
-    totalPages,
+    rowsPerPage,
     setCurrentPage,
-    setTotalPages,
+    setRowsPerPage,
   } = props;
 
   const handleChangePage = (
@@ -49,6 +48,13 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
     newPage: number
   ) => {
     setCurrentPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setCurrentPage(0);
   };
   return (
     <div>
@@ -119,9 +125,10 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
                 <TablePagination
                   rowsPerPageOptions={[3, 4, 5]}
                   count={todoList.length}
-                  rowsPerPage={5}
+                  rowsPerPage={rowsPerPage}
                   page={currentPage}
                   onChangePage={handleChangePage}
+                  onChangeRowsPerPage={handleChangeRowsPerPage}
                   SelectProps={{
                     inputProps: { 'aria-label': 'rows per page' },
                     native: true,
