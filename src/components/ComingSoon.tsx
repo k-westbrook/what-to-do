@@ -28,6 +28,9 @@ interface ComingSoonProps {
   setCurrentPage: any;
   setTotalPages: any;
 }
+const customColumnStyle = (width: string) => ({
+  maxWidth: width,
+});
 
 const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
   const [title, setTitle] = useState("What's to do");
@@ -49,22 +52,35 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell align="left">Date</TableCell>
-              <TableCell align="left">Time</TableCell>
-              <TableCell align="left">Category</TableCell>
-              <TableCell align="left">Name</TableCell>
+              <TableCell style={{ maxWidth: '5%' }} align="left">
+                Date
+              </TableCell>
+              <TableCell style={customColumnStyle('15%')} align="left">
+                Time
+              </TableCell>
+              <TableCell style={customColumnStyle('30%')} align="left">
+                Category
+              </TableCell>
+              <TableCell style={customColumnStyle('40%')} align="left">
+                Name
+              </TableCell>
             </TableRow>
           </TableHead>
           {todoList.length > 0 && (
             <TableBody>
               {todoList.map((todo: any) => (
                 <TableRow>
-                  <TableCell align="left">{todo.date}</TableCell>
-                  <TableCell align="left">{todo.time}</TableCell>
-                  <TableCell align="left">{todo.category}</TableCell>
-                  <TableCell align="left">{todo.name}</TableCell>
-                  <TableCell style={{ borderBottom: 'none' }} align="left">
-                    <Checkbox />
+                  <TableCell style={customColumnStyle('15%')} align="left">
+                    {todo.date}
+                  </TableCell>
+                  <TableCell style={customColumnStyle('15%')} align="left">
+                    {todo.time}
+                  </TableCell>
+                  <TableCell style={customColumnStyle('30%')} align="left">
+                    {todo.category}
+                  </TableCell>
+                  <TableCell style={customColumnStyle('40%')} align="left">
+                    {todo.name}
                   </TableCell>
                 </TableRow>
               ))}
@@ -72,21 +88,23 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
           )}
           <TableFooter>
             <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[3, 4, 5]}
-                colSpan={3}
-                count={todoList.length}
-                rowsPerPage={5}
-                page={currentPage}
-                onChangePage={() => {
-                  console.log('here');
-                }}
-                SelectProps={{
-                  inputProps: { 'aria-label': 'rows per page' },
-                  native: true,
-                }}
-                component="div"
-              />
+              <TableCell colSpan={4}>
+                <TablePagination
+                  rowsPerPageOptions={[3, 4, 5]}
+                  count={todoList.length}
+                  rowsPerPage={5}
+                  page={currentPage}
+                  onChangePage={() => {
+                    console.log('here');
+                  }}
+                  style={customColumnStyle('100%')}
+                  SelectProps={{
+                    inputProps: { 'aria-label': 'rows per page' },
+                    native: true,
+                  }}
+                  component="div"
+                />
+              </TableCell>
             </TableRow>
           </TableFooter>
         </Table>
