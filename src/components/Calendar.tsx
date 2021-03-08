@@ -79,7 +79,7 @@ const CalendarComponent: FunctionComponent<{ todoList: any }> = (
           }
           view="month"
           views={['month']}
-          style={{ height: '500px', width: '700px' }}
+          style={{ height: '400px', width: '80vw' }}
           components={{
             // you have to pass your custom wrapper here
             // so that it actually gets used

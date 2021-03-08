@@ -59,16 +59,16 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
   };
   return (
     <div>
-      <DivWrapper>
+      <DivWrapper height="5vh" padding="0">
         <TextWrapper>
           <Typography variant="h5">Coming Soon</Typography>
         </TextWrapper>
       </DivWrapper>
-      <DivWrapper height="400px">
-        <Table style={{ width: '1400px' }}>
+      <DivWrapper height="50vh">
+        <Table style={{ width: '80vw' }}>
           {todoList.length > 0 && (
             <TableHead>
-              <TableRow>
+              <TableRow style={{ maxHeight: '10px' }}>
                 <TableCell style={customColumnStyle('20%')} align="left">
                   Date
                 </TableCell>
@@ -94,7 +94,7 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
                 : todoList
               ).map((todo: any) => {
                 return (
-                  <TableRow>
+                  <TableRow style={{ maxHeight: '10px' }}>
                     <TableCell style={customColumnStyle('15%')} align="left">
                       {todo.date}
                     </TableCell>

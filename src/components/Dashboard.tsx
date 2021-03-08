@@ -19,7 +19,7 @@ const Dashboard: FunctionComponent = () => {
   };
   return (
     <div>
-      <DivWrapper>
+      <DivWrapper height="10vh" padding="0">
         <TextWrapper>
           <Typography variant="h4">What to Do?</Typography>
         </TextWrapper>
@@ -36,9 +36,9 @@ const Dashboard: FunctionComponent = () => {
       <DivWrapper>
         <Form addTodo={addTodo} />
       </DivWrapper>
-      <DivWrapper>
+      {/* <DivWrapper>
         <CalendarComponent todoList={todoList} />
-      </DivWrapper>
+      </DivWrapper> */}
     </div>
   );
 };
