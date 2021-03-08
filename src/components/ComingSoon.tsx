@@ -15,6 +15,7 @@ import {
   useTheme,
 } from '@material-ui/core';
 import React, { useState, FunctionComponent } from 'react';
+import styled from 'styled-components';
 import Form, { Todo } from './Form';
 import { DivWrapper } from './structure/DivWrapper';
 import { FormItem } from './structure/FormItem';
@@ -60,27 +61,29 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
     <div>
       <DivWrapper>
         <TextWrapper>
-          <Typography variant="h4">Coming Soon</Typography>
+          <Typography variant="h5">Coming Soon</Typography>
         </TextWrapper>
       </DivWrapper>
-      <DivWrapper>
+      <DivWrapper height="400px">
         <Table style={{ width: '1400px' }}>
-          <TableHead>
-            <TableRow>
-              <TableCell style={customColumnStyle('20%')} align="left">
-                Date
-              </TableCell>
-              <TableCell style={customColumnStyle('20%')} align="left">
-                Time
-              </TableCell>
-              <TableCell style={customColumnStyle('30%')} align="left">
-                Category
-              </TableCell>
-              <TableCell style={customColumnStyle('30%')} align="left">
-                Name
-              </TableCell>
-            </TableRow>
-          </TableHead>
+          {todoList.length > 0 && (
+            <TableHead>
+              <TableRow>
+                <TableCell style={customColumnStyle('20%')} align="left">
+                  Date
+                </TableCell>
+                <TableCell style={customColumnStyle('20%')} align="left">
+                  Time
+                </TableCell>
+                <TableCell style={customColumnStyle('30%')} align="left">
+                  Category
+                </TableCell>
+                <TableCell style={customColumnStyle('30%')} align="left">
+                  Name
+                </TableCell>
+              </TableRow>
+            </TableHead>
+          )}
           <TableBody>
             {todoList.length > 0 ? (
               (todoList.length > 0
@@ -108,36 +111,34 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
                 );
               })
             ) : (
-              <TableRow>
-                <TableCell
-                  style={customColumnStyle('100%')}
-                  colSpan={4}
-                  align="center"
-                >
-                  No events
-                </TableCell>
-              </TableRow>
+              <DivWrapper>
+                <TextWrapper>
+                  <Typography variant="h6">No upcoming events</Typography>
+                </TextWrapper>
+              </DivWrapper>
             )}
           </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TableCell colSpan={4}>
-                <TablePagination
-                  rowsPerPageOptions={[3, 4, 5]}
-                  count={todoList.length}
-                  rowsPerPage={rowsPerPage}
-                  page={currentPage}
-                  onChangePage={handleChangePage}
-                  onChangeRowsPerPage={handleChangeRowsPerPage}
-                  SelectProps={{
-                    inputProps: { 'aria-label': 'rows per page' },
-                    native: true,
-                  }}
-                  component="div"
-                />
-              </TableCell>
-            </TableRow>
-          </TableFooter>
+          {todoList.length > 0 && (
+            <TableFooter>
+              <TableRow>
+                <TableCell colSpan={4}>
+                  <TablePagination
+                    rowsPerPageOptions={[3, 4, 5]}
+                    count={todoList.length}
+                    rowsPerPage={rowsPerPage}
+                    page={currentPage}
+                    onChangePage={handleChangePage}
+                    onChangeRowsPerPage={handleChangeRowsPerPage}
+                    SelectProps={{
+                      inputProps: { 'aria-label': 'rows per page' },
+                      native: true,
+                    }}
+                    component="div"
+                  />
+                </TableCell>
+              </TableRow>
+            </TableFooter>
+          )}
         </Table>
       </DivWrapper>
     </div>

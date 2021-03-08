@@ -63,7 +63,7 @@ const CalendarComponent: FunctionComponent<{ todoList: any }> = (
     <div>
       <DivWrapper>
         <TextWrapper>
-          <Typography>Calendar</Typography>
+          <Typography variant="h4">Calendar</Typography>
         </TextWrapper>
       </DivWrapper>
       <DivWrapper>

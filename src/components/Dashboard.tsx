@@ -21,11 +21,8 @@ const Dashboard: FunctionComponent = () => {
     <div>
       <DivWrapper>
         <TextWrapper>
-          <Typography variant="h2">What to Do?</Typography>
+          <Typography variant="h4">What to Do?</Typography>
         </TextWrapper>
-      </DivWrapper>
-      <DivWrapper>
-        <Form addTodo={addTodo} />
       </DivWrapper>
       <DivWrapper>
         <ComingSoon
@@ -35,6 +32,9 @@ const Dashboard: FunctionComponent = () => {
           setRowsPerPage={setRowsPerPage}
           rowsPerPage={rowsPerPage}
         />
+      </DivWrapper>
+      <DivWrapper>
+        <Form addTodo={addTodo} />
       </DivWrapper>
       <DivWrapper>
         <CalendarComponent todoList={todoList} />
