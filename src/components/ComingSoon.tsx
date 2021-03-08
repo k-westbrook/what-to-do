@@ -29,7 +29,7 @@ interface ComingSoonProps {
   setTotalPages: any;
 }
 const customColumnStyle = (width: string) => ({
-  maxWidth: width,
+  width,
 });
 
 const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
@@ -49,43 +49,55 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
         </TextWrapper>
       </DivWrapper>
       <DivWrapper>
-        <Table>
+        <Table style={{ width: '1400px' }}>
           <TableHead>
             <TableRow>
-              <TableCell style={{ maxWidth: '5%' }} align="left">
+              <TableCell style={customColumnStyle('20%')} align="left">
                 Date
               </TableCell>
-              <TableCell style={customColumnStyle('15%')} align="left">
+              <TableCell style={customColumnStyle('20%')} align="left">
                 Time
               </TableCell>
               <TableCell style={customColumnStyle('30%')} align="left">
                 Category
               </TableCell>
-              <TableCell style={customColumnStyle('40%')} align="left">
+              <TableCell style={customColumnStyle('30%')} align="left">
                 Name
               </TableCell>
             </TableRow>
           </TableHead>
-          {todoList.length > 0 && (
-            <TableBody>
-              {todoList.map((todo: any) => (
-                <TableRow>
-                  <TableCell style={customColumnStyle('15%')} align="left">
-                    {todo.date}
-                  </TableCell>
-                  <TableCell style={customColumnStyle('15%')} align="left">
-                    {todo.time}
-                  </TableCell>
-                  <TableCell style={customColumnStyle('30%')} align="left">
-                    {todo.category}
-                  </TableCell>
-                  <TableCell style={customColumnStyle('40%')} align="left">
-                    {todo.name}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          )}
+          <TableBody>
+            {todoList.length > 0 ? (
+              todoList.map((todo: any) => {
+                return (
+                  <TableRow>
+                    <TableCell style={customColumnStyle('15%')} align="left">
+                      {todo.date}
+                    </TableCell>
+                    <TableCell style={customColumnStyle('15%')} align="left">
+                      {todo.time}
+                    </TableCell>
+                    <TableCell style={customColumnStyle('30%')} align="left">
+                      {todo.category}
+                    </TableCell>
+                    <TableCell style={customColumnStyle('40%')} align="left">
+                      {todo.name}
+                    </TableCell>
+                  </TableRow>
+                );
+              })
+            ) : (
+              <TableRow>
+                <TableCell
+                  style={customColumnStyle('100%')}
+                  colSpan={4}
+                  align="center"
+                >
+                  No events
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
           <TableFooter>
             <TableRow>
               <TableCell colSpan={4}>
@@ -97,7 +109,6 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
                   onChangePage={() => {
                     console.log('here');
                   }}
-                  style={customColumnStyle('100%')}
                   SelectProps={{
                     inputProps: { 'aria-label': 'rows per page' },
                     native: true,
