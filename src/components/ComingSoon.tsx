@@ -28,6 +28,8 @@ interface ComingSoonProps {
   setCurrentPage: any;
   setTotalPages: any;
 }
+
+const rowsPerPage = 5;
 const customColumnStyle = (width: string) => ({
   width,
 });
@@ -41,6 +43,13 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
     setCurrentPage,
     setTotalPages,
   } = props;
+
+  const handleChangePage = (
+    event: React.MouseEvent<HTMLButtonElement> | null,
+    newPage: number
+  ) => {
+    setCurrentPage(newPage);
+  };
   return (
     <div>
       <DivWrapper>
@@ -68,7 +77,13 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
           </TableHead>
           <TableBody>
             {todoList.length > 0 ? (
-              todoList.map((todo: any) => {
+              (todoList.length > 0
+                ? todoList.slice(
+                    currentPage * rowsPerPage,
+                    currentPage * rowsPerPage + rowsPerPage
+                  )
+                : todoList
+              ).map((todo: any) => {
                 return (
                   <TableRow>
                     <TableCell style={customColumnStyle('15%')} align="left">
@@ -106,9 +121,7 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
                   count={todoList.length}
                   rowsPerPage={5}
                   page={currentPage}
-                  onChangePage={() => {
-                    console.log('here');
-                  }}
+                  onChangePage={handleChangePage}
                   SelectProps={{
                     inputProps: { 'aria-label': 'rows per page' },
                     native: true,

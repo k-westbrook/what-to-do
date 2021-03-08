@@ -36,7 +36,7 @@ export enum Category {
 
 const defaultTodo = {
   category: Category.OTHER,
-  name: null,
+  name: 'Event',
   date: concatDateString,
   time: currentTime,
   complete: false,
@@ -75,6 +75,7 @@ const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
             name="todo"
             variant="outlined"
             onChange={handleChange('name')}
+            required
           />
         </FormItem>
         <FormItem flex alignItems="flex-end">
@@ -83,6 +84,7 @@ const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
             type="date"
             defaultValue={concatDateString}
             onChange={handleChange('date')}
+            required
           />
         </FormItem>
         <FormItem flex alignItems="flex-end">
@@ -91,6 +93,7 @@ const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
             type="time"
             defaultValue={currentTime}
             onChange={handleChange('time')}
+            required
           />
         </FormItem>
         <FormItem>
