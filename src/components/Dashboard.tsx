@@ -11,7 +11,7 @@ import { TextWrapper } from './structure/TextWrapper';
 const Dashboard: FunctionComponent = () => {
   const [todoList, setList] = useState<Todo[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(3);
 
   const addTodo = (todo: Todo) => {
     const newList = [...todoList, todo];
@@ -19,6 +19,9 @@ const Dashboard: FunctionComponent = () => {
   };
   return (
     <div>
+      <DivWrapper padding="0" height="50px">
+        <TextWrapper textAlign="left">Calendar</TextWrapper>
+      </DivWrapper>
       <DivWrapper height="10vh" padding="0">
         <TextWrapper>
           <Typography variant="h4">What to Do?</Typography>

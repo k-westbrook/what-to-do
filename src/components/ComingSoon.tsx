@@ -30,6 +30,10 @@ interface ComingSoonProps {
   setRowsPerPage: any;
 }
 
+const rowsPerPageDiv = styled.div`
+  max-height: 40px;
+`;
+
 const customColumnStyle = (width: string) => ({
   width,
 });
@@ -59,13 +63,13 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
   };
   return (
     <div>
-      <DivWrapper height="5vh" padding="0">
+      <DivWrapper height="60px" padding="0">
         <TextWrapper>
           <Typography variant="h5">Coming Soon</Typography>
         </TextWrapper>
       </DivWrapper>
-      <DivWrapper height="50vh">
-        <Table style={{ width: '80vw' }}>
+      <DivWrapper height="350px">
+        <Table style={{ width: '900px' }}>
           {todoList.length > 0 && (
             <TableHead>
               <TableRow style={{ maxHeight: '10px' }}>
@@ -123,7 +127,7 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
               <TableRow>
                 <TableCell colSpan={4}>
                   <TablePagination
-                    rowsPerPageOptions={[3, 4, 5]}
+                    rowsPerPageOptions={[3, 4]}
                     count={todoList.length}
                     rowsPerPage={rowsPerPage}
                     page={currentPage}
@@ -133,7 +137,7 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
                       inputProps: { 'aria-label': 'rows per page' },
                       native: true,
                     }}
-                    component="div"
+                    component={rowsPerPageDiv}
                   />
                 </TableCell>
               </TableRow>
