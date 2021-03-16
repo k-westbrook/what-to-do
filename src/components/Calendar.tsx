@@ -1,4 +1,5 @@
 import { Button, TextField, Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import React, { FunctionComponent, Children } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
@@ -56,11 +57,20 @@ const ColoredDateCellWrapper = ({ children, value }: any) =>
 const CalendarComponent: FunctionComponent<{ todoList: any }> = (
   props: any
 ) => {
-  const { todoList } = props;
+  //todo: replace this with a fetch to backend
+  const { location } = props;
+  const { todoList } = location.state;
   const all = transformDates(todoList);
   const todayDate = new Date();
   return (
     <div>
+      <DivWrapper padding="0" height="50px">
+        <TextWrapper textAlign="left">
+          <Link to="/">
+            <Typography variant="h6">Dashboard</Typography>
+          </Link>
+        </TextWrapper>
+      </DivWrapper>
       <DivWrapper>
         <TextWrapper>
           <Typography variant="h4">Calendar</Typography>

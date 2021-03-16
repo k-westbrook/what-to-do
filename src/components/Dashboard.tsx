@@ -1,5 +1,6 @@
 import { Button, TextField, Typography } from '@material-ui/core';
 import React, { useState, FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 import CalendarComponent from './Calendar';
 import ComingSoon from './ComingSoon';
 import Form, { Todo } from './Form';
@@ -17,10 +18,15 @@ const Dashboard: FunctionComponent = () => {
     const newList = [...todoList, todo];
     setList(newList);
   };
+  //replace the Link with just to="/calendar" once backend is set up
   return (
     <div>
       <DivWrapper padding="0" height="50px">
-        <TextWrapper textAlign="left">Calendar</TextWrapper>
+        <TextWrapper textAlign="left">
+          <Link to={{ pathname: '/calendar', state: { todoList } }}>
+            <Typography variant="h6">Calendar</Typography>
+          </Link>
+        </TextWrapper>
       </DivWrapper>
       <DivWrapper height="10vh" padding="0">
         <TextWrapper>
@@ -39,9 +45,6 @@ const Dashboard: FunctionComponent = () => {
       <DivWrapper>
         <Form addTodo={addTodo} />
       </DivWrapper>
-      {/* <DivWrapper>
-        <CalendarComponent todoList={todoList} />
-      </DivWrapper> */}
     </div>
   );
 };
