@@ -70,11 +70,11 @@ const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
             <MenuItem value={Category.OTHER}>Other</MenuItem>
           </Select>
         </FormItem>
-        <FormItem>
+        <FormItem flex alignItems="flex-end">
           <TextField
             name="todo"
-            variant="outlined"
             onChange={handleChange('name')}
+            placeholder="Description"
             required
           />
         </FormItem>
@@ -93,6 +93,7 @@ const Form: FunctionComponent<{ addTodo: any }> = (props: any) => {
             type="time"
             defaultValue={currentTime}
             onChange={handleChange('time')}
+            style={{ width: '100px' }}
             required
           />
         </FormItem>
