@@ -68,7 +68,7 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
           <Typography variant="h5">Coming Soon</Typography>
         </TextWrapper>
       </DivWrapper>
-      <DivWrapper height="350px">
+      <DivWrapper height="275px">
         <Table style={{ width: '900px' }}>
           {todoList.length > 0 && (
             <TableHead>
@@ -127,7 +127,7 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
               <TableRow>
                 <TableCell colSpan={4}>
                   <TablePagination
-                    rowsPerPageOptions={[3, 4]}
+                    rowsPerPageOptions={[2, 3]}
                     count={todoList.length}
                     rowsPerPage={rowsPerPage}
                     page={currentPage}
