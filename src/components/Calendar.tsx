@@ -57,7 +57,7 @@ const ColoredDateCellWrapper = ({ children, value }: any) =>
 const CalendarComponent: FunctionComponent<{ todoList: any }> = (
   props: any
 ) => {
-  //todo: replace this with a fetch to backend
+  // todo: replace this with a fetch to backend
   const { location } = props;
   const { todoList } = location.state;
   const all = transformDates(todoList);

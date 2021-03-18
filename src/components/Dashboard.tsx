@@ -18,7 +18,7 @@ const Dashboard: FunctionComponent = () => {
     const newList = [...todoList, todo];
     setList(newList);
   };
-  //replace the Link with just to="/calendar" once backend is set up
+  // replace the Link with just to="/calendar" once backend is set up
   return (
     <div>
       <DivWrapper padding="0" height="50px">
