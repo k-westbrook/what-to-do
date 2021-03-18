@@ -72,6 +72,8 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
         <Table
           style={{
             width: '900px',
+            backgroundColor: 'white',
+            borderRadius: '10px',
           }}
         >
           {todoList.length > 0 && (

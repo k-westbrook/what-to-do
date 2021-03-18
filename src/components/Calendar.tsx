@@ -65,8 +65,16 @@ const CalendarComponent: FunctionComponent<{ todoList: any }> = (
   const todayDate = new Date();
   return (
     <div>
-      <DivWrapper padding="0" height="50px">
-        <TextWrapper padding="0" textAlign="left">
+      <DivWrapper padding="0" height="50px" position="start">
+        <TextWrapper
+          padding="1rem"
+          textAlign="center"
+          backgroundColor="white"
+          width=" "
+          height="20px"
+          style={{ display: 'flex', alignItems: 'center' }}
+          borderRadius="10px"
+        >
           <StyledLink to="/">
             <Typography variant="h6">Dashboard</Typography>
           </StyledLink>
