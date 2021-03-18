@@ -69,7 +69,11 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
         </TextWrapper>
       </DivWrapper>
       <DivWrapper height="275px">
-        <Table style={{ width: '900px' }}>
+        <Table
+          style={{
+            width: '900px',
+          }}
+        >
           {todoList.length > 0 && (
             <TableHead>
               <TableRow style={{ maxHeight: '10px' }}>

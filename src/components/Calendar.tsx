@@ -7,6 +7,7 @@ import { TextWrapper } from './structure/TextWrapper';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { DivWrapper } from './structure/DivWrapper';
 import { Todo } from './Form';
+import { StyledLink } from './elements/StyledLink';
 
 const localizer = momentLocalizer(moment);
 
@@ -65,10 +66,10 @@ const CalendarComponent: FunctionComponent<{ todoList: any }> = (
   return (
     <div>
       <DivWrapper padding="0" height="50px">
-        <TextWrapper textAlign="left">
-          <Link to="/">
+        <TextWrapper padding="0" textAlign="left">
+          <StyledLink to="/">
             <Typography variant="h6">Dashboard</Typography>
-          </Link>
+          </StyledLink>
         </TextWrapper>
       </DivWrapper>
       <DivWrapper>

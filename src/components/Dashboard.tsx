@@ -3,6 +3,7 @@ import React, { useState, FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import CalendarComponent from './Calendar';
 import ComingSoon from './ComingSoon';
+import { StyledLink } from './elements/StyledLink';
 import Form, { Todo } from './Form';
 import { DivWrapper } from './structure/DivWrapper';
 import { FormItem } from './structure/FormItem';
@@ -21,16 +22,18 @@ const Dashboard: FunctionComponent = () => {
   // replace the Link with just to="/calendar" once backend is set up
   return (
     <div>
-      <DivWrapper padding="0" height="50px">
-        <TextWrapper textAlign="left">
-          <Link to={{ pathname: '/calendar', state: { todoList } }}>
+      <DivWrapper padding="0" height="40px">
+        <TextWrapper padding="0" textAlign="left">
+          <StyledLink to={{ pathname: '/calendar', state: { todoList } }}>
             <Typography variant="h6">Calendar</Typography>
-          </Link>
+          </StyledLink>
         </TextWrapper>
       </DivWrapper>
       <DivWrapper height="10vh" padding="0">
         <TextWrapper>
-          <Typography variant="h4">What to Do?</Typography>
+          <Typography style={{ fontFamily: 'Berkshire Swash' }} variant="h4">
+            What to Do?
+          </Typography>
         </TextWrapper>
       </DivWrapper>
       <DivWrapper>
