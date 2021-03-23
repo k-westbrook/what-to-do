@@ -22,27 +22,40 @@ const Dashboard: FunctionComponent = () => {
   // replace the Link with just to="/calendar" once backend is set up
   return (
     <div>
-      <DivWrapper padding="0" height="40px" position="start">
-        <TextWrapper
-          padding="1rem"
-          textAlign="center"
-          backgroundColor="white"
-          width=" "
-          height="20px"
-          style={{ display: 'flex', alignItems: 'center' }}
-          borderRadius="10px"
+      <DivWrapper padding="0" position="flex-start">
+        <DivWrapper
+          padding="0"
+          height="75px"
+          position="start"
+          style={{ position: 'absolute' }}
         >
-          <StyledLink to={{ pathname: '/calendar', state: { todoList } }}>
-            <Typography variant="h6">Calendar</Typography>
-          </StyledLink>
-        </TextWrapper>
-      </DivWrapper>
-      <DivWrapper height="10vh" padding="0">
-        <TextWrapper>
-          <Typography style={{ fontFamily: 'Berkshire Swash' }} variant="h4">
-            What to Do?
-          </Typography>
-        </TextWrapper>
+          <TextWrapper
+            padding="1rem"
+            textAlign="center"
+            backgroundColor="white"
+            width=" "
+            height="20px"
+            style={{ display: 'flex', alignItems: 'center' }}
+            borderRadius="10px"
+          >
+            <StyledLink to={{ pathname: '/calendar', state: { todoList } }}>
+              <Typography variant="h6">Calendar</Typography>
+            </StyledLink>
+          </TextWrapper>
+        </DivWrapper>
+        <DivWrapper height="75px" padding="0" style={{ flex: '1 0 auto' }}>
+          <TextWrapper
+            padding="1rem"
+            textAlign="center"
+            width=""
+            height="20px"
+            style={{ alignItems: 'center' }}
+          >
+            <Typography style={{ fontFamily: 'Berkshire Swash' }} variant="h4">
+              What to Do?
+            </Typography>
+          </TextWrapper>
+        </DivWrapper>
       </DivWrapper>
       <DivWrapper>
         <ComingSoon

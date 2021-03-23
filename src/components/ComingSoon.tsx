@@ -64,7 +64,7 @@ const ComingSoon: FunctionComponent<ComingSoonProps> = (props: any) => {
   return (
     <div>
       <DivWrapper height="60px" padding="0">
-        <TextWrapper>
+        <TextWrapper backgroundColor="white" borderRadius="10px" width="150px">
           <Typography variant="h5">Coming Soon</Typography>
         </TextWrapper>
       </DivWrapper>
