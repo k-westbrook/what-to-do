@@ -22,7 +22,7 @@ const Dashboard: FunctionComponent = () => {
   // replace the Link with just to="/calendar" once backend is set up
   return (
     <div>
-      <DivWrapper padding="0" height="40px" position="start">
+      <DivWrapper padding="0" height="50px" position="start">
         <TextWrapper
           padding="1rem"
           textAlign="center"
