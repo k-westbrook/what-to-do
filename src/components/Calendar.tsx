@@ -9,6 +9,7 @@ import { DivWrapper } from './structure/DivWrapper';
 import { Todo } from './Form';
 import { StyledLink } from './elements/StyledLink';
 import { CalendarToolbarComponent } from './CalendarToolbar';
+import { EventWrapperComponent } from './EventWrapper';
 
 const localizer = momentLocalizer(moment);
 
@@ -48,14 +49,14 @@ interface Event {
   resource?: any;
 }
 
-const ColoredDateCellWrapper = ({ children, value }: any) =>
-  React.cloneElement(Children.only(children), {
-    style: {
-      ...children.style,
-      fontFamily: 'Poppins',
-      backgroundColor: 'white',
-    },
-  });
+// const ColoredDateCellWrapper = ({ children, value }: any) =>
+//   React.cloneElement(Children.only(children), {
+//     style: {
+//       ...children.style,
+//       fontFamily: 'Poppins',
+//       backgroundColor: 'white',
+//     },
+//   });
 
 const CalendarComponent: FunctionComponent<{ todoList: any }> = (
   props: any
@@ -101,7 +102,7 @@ const CalendarComponent: FunctionComponent<{ todoList: any }> = (
           view="month"
           views={['month']}
           style={{
-            height: '450px',
+            height: '500px',
             width: '900px',
             backgroundColor: 'white',
             borderStyle: 'solid',
@@ -109,8 +110,8 @@ const CalendarComponent: FunctionComponent<{ todoList: any }> = (
           components={{
             // you have to pass your custom wrapper here
             // so that it actually gets used
-            dateCellWrapper: ColoredDateCellWrapper,
             toolbar: CalendarToolbarComponent,
+            eventWrapper: EventWrapperComponent,
           }}
         />
       </DivWrapper>
