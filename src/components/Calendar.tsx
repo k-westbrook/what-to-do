@@ -8,6 +8,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { DivWrapper } from './structure/DivWrapper';
 import { Todo } from './Form';
 import { StyledLink } from './elements/StyledLink';
+import { CalendarToolbarComponent } from './CalendarToolbar';
 
 const localizer = momentLocalizer(moment);
 
@@ -46,6 +47,7 @@ interface Event {
   allDay?: boolean;
   resource?: any;
 }
+
 const ColoredDateCellWrapper = ({ children, value }: any) =>
   React.cloneElement(Children.only(children), {
     style: {
@@ -108,6 +110,7 @@ const CalendarComponent: FunctionComponent<{ todoList: any }> = (
             // you have to pass your custom wrapper here
             // so that it actually gets used
             dateCellWrapper: ColoredDateCellWrapper,
+            toolbar: CalendarToolbarComponent,
           }}
         />
       </DivWrapper>
