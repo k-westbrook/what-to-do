@@ -45,7 +45,7 @@ const Dashboard: FunctionComponent = () => {
         </DivWrapper>
         <DivWrapper height="75px" padding="0" style={{ flex: '1 0 auto' }}>
           <TextWrapper
-            padding="1rem"
+            padding="0"
             textAlign="center"
             width=""
             height="20px"
